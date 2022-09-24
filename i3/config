@@ -2,7 +2,7 @@
 
 set $mod Mod4
 
-font pango: Cantarell 8
+font pango: JetBrainsMono Nerd Font 8
 
 exec --no-startup-id dex --autostart --environment i3
 
@@ -22,6 +22,10 @@ bindsym $mod+Shift+space floating toggle
 
 floating_modifier $mod
 
+######################### AUTOMATIC FLOATING WINDOWS
+
+for_window [class="Shutter"] floating enable
+
 ######################### TERMINAL
 
 bindsym $mod+Return exec alacritty
@@ -39,7 +43,7 @@ bindsym $mod+d exec --no-startup-id rofi -show drun
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym $mod+Right focus right 
 
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
@@ -58,7 +62,7 @@ bindsym $mod+v split v
 
 bindsym $mod+f fullscreen toggle
 
-######################### CHANGE LAYOUT SCREEN
+######################### CHANGE LAYOUT SCREEN 
 
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
@@ -66,11 +70,11 @@ bindsym $mod+e layout toggle split
 
 ######################### WORKSPACE NAMES
 
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
+set $ws1 "ﮊ"
+set $ws2 ""
+set $ws3 ""
+set $ws4 ""
+set $ws5 "5" 
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
@@ -79,29 +83,29 @@ set $ws10 "10"
 
 ######################### SWITCH WORKSPACES
 
-bindsym $mod+1 workspace number $ws1
-bindsym $mod+2 workspace number $ws2
-bindsym $mod+3 workspace number $ws3
-bindsym $mod+4 workspace number $ws4
-bindsym $mod+5 workspace number $ws5
-bindsym $mod+6 workspace number $ws6
-bindsym $mod+7 workspace number $ws7
-bindsym $mod+8 workspace number $ws8
-bindsym $mod+9 workspace number $ws9
-bindsym $mod+0 workspace number $ws10
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
 
 ######################### MOVE FOCUSED WINDOW TO ANY CONTAINER
 
-bindsym $mod+Shift+1 move container to workspace number $ws1
-bindsym $mod+Shift+2 move container to workspace number $ws2
-bindsym $mod+Shift+3 move container to workspace number $ws3
-bindsym $mod+Shift+4 move container to workspace number $ws4
-bindsym $mod+Shift+5 move container to workspace number $ws5
-bindsym $mod+Shift+6 move container to workspace number $ws6
-bindsym $mod+Shift+7 move container to workspace number $ws7
-bindsym $mod+Shift+8 move container to workspace number $ws8
-bindsym $mod+Shift+9 move container to workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws10
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
 
 ######################### RELOAD CONFIG FILE
 
@@ -132,7 +136,7 @@ bindsym $mod+r mode "resize"
 
 ######################### BAR
   
-exec_always --no-startup-id .config/polybar/launch.sh --blocks
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh mybar
 
 #########################
 #        CUSTOM         #
@@ -145,13 +149,11 @@ client.focused #610C63 #610C63 #7A0000 #fff
 ######################### WINDOW SEPARATION
 
 gaps inner 15
-gaps outer -4
-smart_gaps on
-smart_borders no_gaps
+gaps outer -6
 
 ######################### TRANSPARENCY
 
-exec picom -b -f
+exec picom -b -f 
 
 ######################### REMOVE TITLE WINDOW / GIVE BORDER TO WINDOWS
 
@@ -159,13 +161,13 @@ for_window [class="^.*"] border pixel 0
 
 ######################### BACKGROUND
 
-exec_always feh --bg-fill "/home/jean/Pictures/wallpapers/2.png"
+exec_always feh --bg-fill "/home/jean/Pictures/wallpapers/nezuko.jpg"
 
 ######################### XBORDER
 
-bindsym $mod+Shift+t exec --no-startup-id pkill xborders
+# bindsym $mod+Shift+t exec --no-startup-id pkill xborders
+# exec --no-startup-id /home/Documents/software/xborder/xborders -c /home/Documents/software/xborder/example_config.json
 
-exec_always --no-startup-id '/home/jean/Documents/software/xborder/xborders' -c '/home/jean/Documents/software/xborder/example_config.json'
 
 ######################### SCREENSHOT
 
