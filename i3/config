@@ -70,16 +70,9 @@ bindsym $mod+e layout toggle split
 
 ######################### WORKSPACE NAMES
 
-set $ws1 "ﮊ"
-set $ws2 ""
-set $ws3 ""
-set $ws4 ""
-set $ws5 "5" 
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+# set $ws1 %name%
+# set $ws2 %name%
+# set $ws3 %name%
 
 ######################### SWITCH WORKSPACES
 
@@ -135,7 +128,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 ######################### BAR
-  
+
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh mybar
 
 #########################
@@ -144,7 +137,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh mybar
 
 ######################### FOCUSED WINDOW
 
-client.focused #610C63 #610C63 #7A0000 #fff
+client.focused #A60FAB #A60FAB #7A0000 #DE9ED4
 
 ######################### WINDOW SEPARATION
 
@@ -153,7 +146,7 @@ gaps outer -6
 
 ######################### TRANSPARENCY
 
-exec picom -b -f 
+exec_always --no-startup-id picom -b --experimental-backends --config $HOME/.config/picom.conf
 
 ######################### REMOVE TITLE WINDOW / GIVE BORDER TO WINDOWS
 
@@ -161,7 +154,7 @@ for_window [class="^.*"] border pixel 0
 
 ######################### BACKGROUND
 
-exec_always feh --bg-fill "/home/jean/Pictures/wallpapers/nezuko.jpg"
+exec_always feh --bg-fill "/home/roa/Pictures/wallpapers/lucy.jpg"
 
 ######################### XBORDER
 
