@@ -41,8 +41,8 @@ get_icon() {
     echo $icon
 }
 
-KEY="a8f01fc3a31d0b68d6c9f4d71db1acf3"
-CITY="Santiago"
+KEY="" 
+CITY=""
 UNITS="metric"
 SYMBOL="°"
 
