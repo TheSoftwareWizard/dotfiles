@@ -5,11 +5,11 @@ local function font_with_fallback(name, params)
 	return wezterm.font_with_fallback(names, params)
 end
 
-local font_name = "Maple Mono SC NF" 
+local font_name = "Maple Mono SC NF"
 
 return {
 	-- OpenGL for GPU acceleration, Software for CPU
-	front_end = "OpenGL",
+	front_end = "Software",
 
 	color_scheme = 'Catppuccin Mocha',
 
@@ -30,7 +30,7 @@ return {
 		},
 	},
 	warn_about_missing_glyphs = false,
-	font_size = 12,
+	font_size = 9,
 	line_height = 1.0,
 	dpi = 96.0,
 
@@ -38,10 +38,10 @@ return {
 	default_cursor_style = "BlinkingUnderline",
 
 	-- X11
-	enable_wayland = false,
+	enable_wayland = true,
 
 	-- Keybinds
-	disable_default_key_bindings = true,
+	disable_default_key_bindings = false,
 	keys = {
 		{
 			key = [[\]],

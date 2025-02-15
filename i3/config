@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango: iosevka-nerd 8
+font pango:Maple Mono SC NF 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -26,9 +26,13 @@ exec --no-startup-id dex --autostart --environment i3
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+# Bloqueo automático a los 5 minutos con i3lock y la imagen de fondo
+exec --no-startup-id xautolock -time 5 -locker "i3lock -i /home/drak/Pictures/maomao.png --nofork"
+
+# Bloqueo manual con Mod+Shift+L usando i3lock
+bindsym $mod+Shift+l exec --no-startup-id i3lock -i /home/drak/Pictures/maomao.png --nofork
+
+
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -55,7 +59,7 @@ bindsym $mod+Return exec wezterm
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id rofi -show drun
+bindsym $mod+d exec rofi -show drun
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -74,11 +78,11 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+# # move focused window
+# bindsym $mod+Shift+j move left
+# bindsym $mod+Shift+k move down
+# bindsym $mod+Shift+l move up
+# bindsym $mod+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -183,24 +187,14 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Monitor
-
-# Configuración de monitores en i3
-
-# Define la posición de los monitores
 exec --no-startup-id xrandr --output DisplayPort-1 --mode 1360x768 --pos 0x0 --rotate left \
-                           --output HDMI-A-0 --primary --mode 1920x1080 --pos 1360x0 --rotate normal
-
-# Ajusta el fondo de pantalla (opcional, si usas feh)
-exec --no-startup-id feh --bg-fill /home/drak/Pictures/frieren.jpeg
-
-exec --no-startup-id $HOME/.config/polybar/launch.sh mybar
+			--output HDMI-A-0 --primary --mode 1920x1080 --pos 1360x0 --rotate normal
 
 for_window [class="^.*"] border pixel 1
 
 gaps inner 15
 gaps outer 0
 
-bindsym Print exec --no-startup-id flameshot gui
+exec --no-startup-id feh --bg-fill /home/drak/Pictures/maomao.png
 
-exec --no-startup-id setxkbmap -layout us,latam -option grp:alt_shift_toggle
+exec --no-startup-id $HOME/.config/polybar/launch.sh mybar
