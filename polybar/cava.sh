@@ -1,4 +1,7 @@
+
+
 #! /bin/bash
+export PULSE_SERVER="unix:${XDG_RUNTIME_DIR}/pulse/native"
 
 bar="▁▂▃▄▅▆▇█"
 dict="s/;//g;"
@@ -11,19 +14,29 @@ do
     i=$((i=i+1))
 done
 
+pipe="/tmp/cava.fifo"
+rm -f "$pipe"  # Fuerza la eliminación si existe
+mkfifo -m 600 "$pipe"  # Crea el FIFO con permisos correctos
+
 # write cava config
 config_file="/tmp/polybar_cava_config"
 echo "
 [general]
-bars = 10
+bars = 20
+[input]
+method = pulse
+source = alsa_output.pci-0000_2a_00.6.analog-stereo.monitor
 [output]
 method = raw
-raw_target = /dev/stdout
+raw_target = $pipe
 data_format = ascii
 ascii_max_range = 7
 " > $config_file
 
-# read stdout from cava
-cava -p $config_file | while read -r line; do
-    echo $line | sed $dict
-done
+# run cava in the background
+cava -p $config_file &
+
+# reading data from fifo
+while read -r cmd; do
+    echo $cmd | sed $dict
+done < $pipe
