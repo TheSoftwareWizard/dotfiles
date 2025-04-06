@@ -1,0 +1,246 @@
+#backlight {
+  background-color: #7469B6;
+  color: #db4b4b;
+  border-radius: 0px 0px 0px 0px;
+  margin: 5px;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding: 0px 0px;
+}
+
+/* Battery module */
+#battery {
+  color: #9ece6a;
+}
+
+#battery.charging {
+  color: #9ece6a;
+}
+
+#battery.warning:not(.charging) {
+  background-color: #f7768e;
+  color: #24283b;
+  border-radius: 5px 5px 5px 5px;
+}
+
+/* Clock module */
+#clock {
+  color: #fff;
+  background-color: #2B4841;
+  font-weight: bold;
+  padding-right: 10px;
+  margin: 5px;
+  border-radius: 10px;
+}
+
+/* CPU usage module */
+#cpu {
+  background-color: #282828;
+  border-radius: 16px;
+  margin: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 0px 10px 0px 10px;
+  font-weight: bold;
+}
+
+#custom-date, #battery, #pulseaudio, #network, #custom-randwall, #custom-launcher {
+padding: 5px 10px;
+margin: 5px;
+border-radius: 10px;
+}
+
+#custom-date {
+color: #fff;
+}
+
+#custom-power {
+color: #E1AFD1;
+background-color: #db4b4b;
+border-radius: 5px;
+margin-right: 10px;
+margin-top: 5px;
+margin-bottom: 5px;
+margin-left: 0px;
+padding: 5px 10px;
+}
+
+#custom-launcher {
+  color: #fff;
+  background-color: #2B4841;
+  border-radius: 10px;
+  margin: 5px;
+  padding: 0 8px 0 12px;
+}
+
+#custom-launcher button:hover {
+  background-color: #FB4934;
+  color: transparent;
+}
+
+/* #custom-playerctl {
+  background: #7469B6;
+  padding: 1px 4px 1px 8px;
+  border-radius: 25px;
+  margin: 10px 3px 8px 10px;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 16px;
+  color:#E1AFD1;
+} */
+
+/* #custom-playerlabel {
+  background: transparent;
+  padding-left: 10px;
+  padding-right: 5px;
+  margin-top: 6px;
+  margin-bottom: 3px;
+  font-weight: normal;
+  font-style: normal;
+  color: #333 ;
+} */
+
+#custom-wf-recorder {
+  padding: 0 20px;
+  color: #e5809e;
+  background-color: #7469B6;
+}
+
+#custom-hyprpicker {
+  background-color: #0c0e0f;
+  /*color: #8EC07C;*/
+  border-radius: 16px;
+  margin: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 0px 11px 0px 9px;
+  font-weight: bold;
+}
+
+#custom-notifications {
+  color: #fff;
+  background-color: #2B4841;
+  border-radius: 10px;
+  margin: 5px;
+  padding: 0 10px 0 6px;
+}
+
+#disk {
+  background-color: #282828;
+  /*color: #8EC07C;*/
+  border-radius: 16px;
+  margin: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 0px 10px 0px 10px;
+  font-weight: bold;
+}
+
+/* Memory usage module */
+#memory {
+  background-color: #282828;
+  /*color: #83A598;*/
+  border-radius: 16px;
+  margin: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 0px 10px 0px 10px;
+  font-weight: bold;
+}
+
+/* Network module */
+#network {
+  color: #E1AFD1;
+  border-radius: 8px;
+  margin-right: 5px;
+}
+
+/* Audio / Volume module */
+#pulseaudio {
+  color: #fff;
+  background: #2B4841;
+  border-radius: 10px;
+  margin: 5px;
+  font-weight: bold;
+}
+
+#pulseaudio.muted {
+  color: red;
+  margin-left: 0px;
+  font-weight: bold;
+}
+
+/* System tray */
+#tray {
+  background: #2B4841;
+  border-radius: 10px;
+  margin: 5px;
+  padding: 0px 12px;
+  /*border-right: solid 1px #282738;*/
+}
+
+#window {
+  background: #7469B6;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 16px;
+  /*border-left: solid 1px #282738;*/
+  /*border-right: solid 1px #282738;*/
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Workspaces module */
+#workspaces {
+  background: #2B4841;
+  margin: 5px 5px;
+  padding: 8px 5px;
+  border-radius: 10px;
+  font-weight: normal;
+  font-style: normal;
+  border: solid 0px #E1AFD1;
+}
+
+#workspaces button {
+  padding: 0px 5px;
+  margin: 0px 3px;
+  border-radius: 5px;
+  color: #E1AFD1;
+  background-color: #0D3334;
+  transition: all 0.3s ease-in-out;
+}
+
+#workspaces button.active {
+  color: #ffffff;
+  background-color: #4c8e49;
+  border-radius: 5px;
+  min-width: 50px;
+  background-size: 400% 400%;
+  transition: all 0.3s ease-in-out;
+}
+
+#workspaces button:hover {
+  background-color: #5A7A2E;
+  color: #fff;
+  border-radius: 5px;
+  min-width: 50px;
+  background-size: 400% 400%;
+}
+
+/* Global default styles */
+* {
+  border: none;
+  font-family: "Maple Mono SC NF";
+  font-size: 14px;
+  font-style: normal;
+  color: #ffffff;
+}
+
+/* Main Waybar window styling */
+window#waybar {
+  background: #0E2228;
+  /* border-bottom: 1px solid #0c0e0f; */
+  /* color: #b50606 */
+}
