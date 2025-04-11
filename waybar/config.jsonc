@@ -7,8 +7,8 @@
   "margin-bottom": 0,
   "margin-left": 0,
   "margin-right": 0,
-  "modules-left": ["hyprland/workspaces","tray"],
-  "modules-center": ["custom/cava"],
+  "modules-left": ["tray"],
+  "modules-center": ["hyprland/workspaces"],
   "modules-right": ["pulseaudio","clock","custom/notifications","custom/launcher"],
 
   "clock": {
@@ -16,12 +16,7 @@
     "tooltip": "true"
   },
 
-  "custom/notifications": {
-    "format": "<span font='16' rise='-500'> 󰂚 </span>",
-    "on-click": "bash ~/.config/eww/scripts/launcher toggle_menu quicksettings"
-  },
-
-  "hyprland/workspaces": {
+   "hyprland/workspaces": {
     "active-only": false,
     "all-outputs": true,
     "disable-scroll": false,
