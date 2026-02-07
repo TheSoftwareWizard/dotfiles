@@ -1,121 +1,137 @@
-local wezterm = require("wezterm")
+local wezterm = require 'wezterm'
+local config = wezterm.config_builder()
 
-local function font_with_fallback(name, params)
-names = { name, "Apple Color Emoji", "azuki_font" }
-	return wezterm.font_with_fallback(names, params)
-end
+config.enable_wayland = true
+config.front_end = "WebGpu"
+config.colors = {
+    foreground = "#ebdbb2",
+    background = "#282828",
+    cursor_bg = "#ebdbb2",
+    cursor_fg = "#282828",
+    cursor_border = "#ebdbb2",
+    selection_fg = "#282828",
+    selection_bg = "#fabd2f",
+    scrollbar_thumb = "#504945",
+    split = "#504945",
 
-local font_name = "JetBrains Mono"
+    ansi = {
+        "#282828",
+        "#cc241d",
+        "#98971a",
+        "#d79921",
+        "#458588",
+        "#b16286",
+        "#689d6a",
+        "#a89984",
+    },
+    brights = {
+        "#928374",
+        "#fb4934",
+        "#b8bb26",
+        "#fabd2f",
+        "#83a598",
+        "#d3869b",
+        "#8ec07c",
+        "#ebdbb2",
+    },
 
-return {
-	-- OpenGL for GPU acceleration, Software for CPU
-	front_end = "OpenGL",
-	
-	-- default_prog = {"/bin/zsh", "-l", "-c", "tmux attach || tmux new-session"},
-
-	color_scheme = 'Dark+',
-
-	-- Font config
-	font = font_with_fallback(font_name),
-	font_rules = {
-		{
-			italic = true,
-			font = font_with_fallback(font_name, { italic = true }),
-		},
-		{
-			italic = false,
-			font = font_with_fallback(font_name, { bold = true }),
-		},
-		{
-			intensity = "Bold",
-			font = font_with_fallback(font_name, { bold = true }),
-		},
-	},
-	warn_about_missing_glyphs = false,
-	font_size = 10,
-	line_height = 1.0,
-	dpi = 96.0,
-
-	-- Cursor style
-	default_cursor_style = "BlinkingUnderline",
-
-	-- X11
-	enable_wayland = false,
-
-	-- Keybinds
-	disable_default_key_bindings = false,
-	
-
-	-- Aesthetic Night Colorscheme
-	bold_brightens_ansi_colors = true,
-	-- Padding
-	window_padding = {
-		left = 10,
-		right = 10,
-		top = 10,
-		bottom = 10,
-	},
-
-	-- Tab Bar
-	enable_tab_bar = true,
-	hide_tab_bar_if_only_one_tab = true,
-	show_tab_index_in_tab_bar = false,
-	tab_bar_at_bottom = true,
-
-	-- General
-	automatically_reload_config = true,
-	inactive_pane_hsb = { saturation = 1.0, brightness = 1.0 },
-	window_background_opacity = 0.7,
-	window_close_confirmation = "NeverPrompt",
-  window_frame = { active_titlebar_bg = "#0096c7", font = font_with_fallback(font_name, { bold = true }) },
-
-	-- Esquema de colores personalizado basado en nueva paleta de azules
-	colors = {
-		foreground = "#caf0f8",           -- light-cyan (texto principal)
-		background = "#060817",           -- federal-blue (fondo)
-		cursor_bg = "#0077b6",            -- honolulu-blue (cursor)
-		cursor_border = "#0077b6",        -- honolulu-blue (border del cursor)
-		cursor_fg = "#caf0f8",            -- light-cyan (texto del cursor)
-		
-		selection_bg = "#0096c7",         -- blue-green (fondo de selección)
-		selection_fg = "#caf0f8",         -- light-cyan (texto de selección)
-		
-		ansi = {
-			"#03045e",    -- Negro (federal-blue)
-			"#90e0ef",    -- Rojo (non-photo-blue para contraste)
-			"#48cae4",    -- Verde (vivid-sky-blue)
-			"#ade8f4",    -- Amarillo (non-photo-blue-2)
-			"#0077b6",    -- Azul (honolulu-blue)
-			"#00b4d8",    -- Magenta (pacific-cyan)
-			"#0096c7",    -- Cian (blue-green)
-			"#caf0f8",    -- Blanco (light-cyan)
-		},
-		brights = {
-			"#023e8a",    -- Negro brillante (marian-blue)
-			"#90e0ef",    -- Rojo brillante (non-photo-blue)
-			"#48cae4",    -- Verde brillante (vivid-sky-blue)
-			"#ade8f4",    -- Amarillo brillante (non-photo-blue-2)
-			"#0096c7",    -- Azul brillante (blue-green)
-			"#00b4d8",    -- Magenta brillante (pacific-cyan)
-			"#48cae4",    -- Cian brillante (vivid-sky-blue)
-			"#caf0f8",    -- Blanco brillante (light-cyan)
-		},
-		
-		-- Colores para tabs
-		tab_bar = {
-			background = "#03045e",  -- federal-blue
-			active_tab = {
-				bg_color = "#0077b6",  -- honolulu-blue
-				fg_color = "#caf0f8",  -- light-cyan
-			},
-			inactive_tab = {
-				bg_color = "#023e8a",  -- marian-blue
-				fg_color = "#90e0ef",  -- non-photo-blue
-			},
-			inactive_tab_hover = {
-				bg_color = "#0096c7",  -- blue-green
-				fg_color = "#caf0f8",  -- light-cyan
-			},
-		},
-	},
 }
+config.font = wezterm.font_with_fallback({
+    "JetBrains Mono",
+    "JetBrainsMono Nerd Font",
+    "Noto Color Emoji",
+})
+config.font_size = 9.0
+config.line_height = 1.1
+config.window_background_opacity = 0.8
+config.window_padding = {
+    left = 10,
+    right = 10,
+    top = 10,
+    bottom = 10,
+}
+config.window_decorations = "NONE"
+config.window_close_confirmation = "NeverPrompt"
+config.initial_rows = 30
+config.initial_cols = 120
+
+config.enable_tab_bar = true
+config.use_fancy_tab_bar = false
+config.tab_bar_at_bottom = true
+config.hide_tab_bar_if_only_one_tab = false
+config.tab_max_width = 32
+config.show_tab_index_in_tab_bar = false
+config.show_new_tab_button_in_tab_bar = true
+
+config.colors.tab_bar = {
+    background = "#1d2021",
+    active_tab = { bg_color = "#d79921", fg_color = "#1d2021", intensity = "Bold" },
+    inactive_tab = { bg_color = "#3c3836", fg_color = "#a89984" },
+    inactive_tab_hover = { bg_color = "#504945", fg_color = "#ebdbb2", italic = false },
+    new_tab = { bg_color = "#1d2021", fg_color = "#928374" },
+    new_tab_hover = { bg_color = "#98971a", fg_color = "#1d2021" },
+}
+
+wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
+    local title = tab.active_pane.title
+    if #title > max_width - 4 then
+        title = string.sub(title, 1, max_width - 7) .. "..."
+    end
+    local icon = " "
+    local process = tab.active_pane.foreground_process_name or ""
+    
+    if process:find("nvim") then
+        icon = " "
+    elseif process:find("zsh") or process:find("bash") then
+        icon = " "
+    elseif process:find("git") then
+        icon = " "
+    elseif process:find("node") then
+        icon = " "
+    elseif process:find("python") then
+        icon = " "
+    elseif process:find("ssh") then
+        icon = "󰣀 "
+    elseif process:find("docker") then
+        icon = " "
+    elseif process:find("htop") or process:find("btop") then
+        icon = " "
+    end
+    
+    if tab.is_active then
+        return {
+            { Background = { Color = "#d79921" } },
+            { Foreground = { Color = "#1d2021" } },
+            { Text = " " .. icon .. title .. " " },
+        }
+    else
+        return {
+            { Background = { Color = "#3c3836" } },
+            { Foreground = { Color = "#a89984" } },
+            { Text = " " .. icon .. title .. " " },
+        }
+    end
+end)
+
+config.default_cursor_style = "SteadyBlock"
+config.scrollback_lines = 10000
+config.enable_scroll_bar = false
+config.check_for_updates = false
+config.audible_bell = "Disabled"
+config.warn_about_missing_glyphs = false
+config.send_composed_key_when_left_alt_is_pressed = false
+config.send_composed_key_when_right_alt_is_pressed = false
+config.keys = {
+    { key = "d", mods = "CTRL|SHIFT", action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+    { key = "e", mods = "CTRL|SHIFT", action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
+    { key = "LeftArrow", mods = "CTRL|SHIFT", action = wezterm.action.ActivatePaneDirection("Left") },
+    { key = "RightArrow", mods = "CTRL|SHIFT", action = wezterm.action.ActivatePaneDirection("Right") },
+    { key = "UpArrow", mods = "CTRL|SHIFT", action = wezterm.action.ActivatePaneDirection("Up") },
+    { key = "DownArrow", mods = "CTRL|SHIFT", action = wezterm.action.ActivatePaneDirection("Down") },
+    { key = "w", mods = "CTRL|SHIFT", action = wezterm.action.CloseCurrentPane({ confirm = false }) },
+    { key = "+", mods = "CTRL", action = wezterm.action.IncreaseFontSize },
+    { key = "-", mods = "CTRL", action = wezterm.action.DecreaseFontSize },
+    { key = "0", mods = "CTRL", action = wezterm.action.ResetFontSize },
+}
+
+return config

@@ -1,0 +1,112 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    
+    "logo": {
+        "type": "kitty",
+        "source": "/home/drak/.config/fastfetch/images/maomao2.jpg",
+        "width": 35,
+        "height": 15,
+        "padding": {
+            "top": 1,
+            "left": 2,
+            "right": 3
+        }
+    },
+    
+    "display": {
+        "separator": "  ",
+        "color": {
+            "keys": "yellow",
+            "title": "green"
+        }
+    },
+    
+    "modules": [
+        {
+            "type": "custom",
+            "format": "{#bright_green}\u250c\u2500\u2500\u2500 {#bright_yellow}\u25c8 {#bright_green}System Info {#bright_yellow}\u25c8 \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500{#bright_green}\u2510"
+        },
+        {
+            "type": "custom",
+            "format": "{#bright_green}\u2502"
+        },
+        
+        {
+            "type": "os",
+            "key": "{#bright_green}\u2502 {#bright_yellow}\uf30a ",
+            "format": "{2} {10}"
+        },
+        {
+            "type": "host",
+            "key": "{#bright_green}\u2502 {#bright_green}\uf108 ",
+            "format": "{2}"
+        },
+        {
+            "type": "cpu",
+            "key": "{#bright_green}\u2502 {#bright_yellow}\uf4bc ",
+            "showPeCoreCount": false
+        },
+        {
+            "type": "gpu",
+            "key": "{#bright_green}\u2502 {#bright_green}\uf1b2 ",
+            "format": "{2}"
+        },
+        {
+            "type": "memory",
+            "key": "{#bright_green}\u2502 {#bright_yellow}\uefc5 "
+        },
+        {
+            "type": "disk",
+            "key": "{#bright_green}\u2502 {#bright_green}\uf0a0 ",
+            "folders": "/"
+        },
+        {
+            "type": "packages",
+            "key": "{#bright_green}\u2502 {#bright_yellow}\uf487 "
+        },
+        {
+            "type": "shell",
+            "key": "{#bright_green}\u2502 {#bright_green}\ue795 "
+        },
+        {
+            "type": "terminal",
+            "key": "{#bright_green}\u2502 {#bright_yellow}\uf120 "
+        },
+        {
+            "type": "wm",
+            "key": "{#bright_green}\u2502 {#bright_green}\uf2d2 "
+        },
+        {
+            "type": "uptime",
+            "key": "{#bright_green}\u2502 {#bright_yellow}\uf017 "
+        },
+        
+        {
+            "type": "custom",
+            "format": "{#bright_green}\u2502"
+        },
+        {
+            "type": "custom",
+            "format": "{#bright_green}\u251c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524"
+        },
+        
+        {
+            "type": "custom",
+            "format": "{#bright_green}\u2502  {#bright_yellow}\uf09b GitHub   {#cyan}github.com/TheSoftwareWizard"
+        },
+        {
+            "type": "custom",
+            "format": "{#bright_green}\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518"
+        },
+        
+        {
+            "type": "custom",
+            "format": ""
+        },
+        {
+            "type": "colors",
+            "paddingLeft": 4,
+            "symbol": "square"
+        }
+    ]
+}

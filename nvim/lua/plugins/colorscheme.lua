@@ -1,0 +1,49 @@
+return {
+  "ellisonleao/gruvbox.nvim",
+  priority = 1000,
+  config = function()
+    require("gruvbox").setup({
+      terminal_colors = true,
+      undercurl = true,
+      underline = true,
+      bold = true,
+      italic = {
+        strings = true,
+        emphasis = true,
+        comments = true,
+        operators = false,
+        folds = true,
+      },
+      strikethrough = true,
+      invert_selection = false,
+      invert_signs = false,
+      invert_tabline = false,
+      invert_intend_guides = false,
+      inverse = true,
+      contrast = "", -- can be "hard", "soft" or empty string
+      palette_overrides = {},
+      overrides = {
+        Visual = {
+          bg = "NONE",
+        },
+        VisualNOS = {
+          bg = "NONE",
+        },
+      },
+      dim_inactive = false,
+      transparent_mode = true,
+    })
+    vim.cmd("colorscheme gruvbox")
+    
+    vim.defer_fn(function()
+      vim.cmd("highlight Visual guibg=NONE ctermbg=NONE")
+      vim.cmd("highlight VisualNOS guibg=NONE ctermbg=NONE")
+      vim.api.nvim_set_hl(0, "Visual", { bg = "NONE" })
+      vim.api.nvim_set_hl(0, "VisualNOS", { bg = "NONE" })
+    end, 200)
+    vim.defer_fn(function()
+      vim.cmd("highlight Visual guibg=NONE ctermbg=NONE")
+      vim.cmd("highlight VisualNOS guibg=NONE ctermbg=NONE")
+    end, 1000)
+  end,
+}

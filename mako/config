@@ -1,0 +1,22 @@
+# Mako notification daemon (Gruvbox)
+background-color=#000000
+text-color=#ebdbb2
+border-color=#d79921
+border-size=2
+default-timeout=5000
+font=JetBrains Mono 9
+max-history=1000
+border-radius=4
+max-icon-size=36
+padding=10
+width=300
+height=100
+outer-margin=10,10
+layer=overlay
+
+[urgency=high]
+default-timeout=10000
+border-color=#d79921
+
+[mode=do-not-disturb]
+invisible=1
