@@ -38,7 +38,7 @@ echo "$VIDEOS" | shuf | head -n "$PLAYLIST_MAX" | while read -r video; do
     echo "$video" >> "$PLAYLIST"
 done
 
-MPV_OPTS="hwdec=no vo=gpu-next fps=30 video-sync=display-vdrop interpolation=no no-audio cache=yes cache-secs=2 demuxer-max-bytes=8MiB"
+MPV_OPTS="hwdec=vaapi vo=gpu fps=30 video-sync=display-vdrop interpolation=no no-audio cache=yes cache-secs=2 demuxer-max-bytes=24MiB"
 mpvpaper -p -n "$SLIDESHOW_INTERVAL" -o "$MPV_OPTS" "$MONITOR" "$PLAYLIST" &
 (sleep 10 && rm -f "$PLAYLIST") &
 echo "Wallpaper on $MONITOR (slideshow every ${SLIDESHOW_INTERVAL}s)"

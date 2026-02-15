@@ -35,8 +35,12 @@ Hyprland rice — Gruvbox, Waybar, WezTerm, Neovim. Fedora.
 |------|--------------|
 | `config` | Modules: workspaces, window, media, cava (braille), CPU, GPU, RAM, volume, network, clock, tray. |
 | `style.css` | Gruvbox, JetBrains Mono. No border-radius; thin border on cava only; no hover on active workspace. |
+| `style2.css` | Alternate Gruvbox style: icon labels, colored module borders. |
 | `scripts/mediaplayer.sh` | playerctl + PipeWire sink-inputs. Icon + artist − title. |
 | `scripts/cava.sh` | Cava raw → Unicode bars. Styles: default \| thin \| minimal \| dots \| block \| braille. |
+| `scripts/notifications.sh` | Mako: show notification count in waybar. |
+| `scripts/show-notifications.sh` | List all notifications in wofi (makoctl list). |
+| `custom/mediaplayer.py` | Optional: Python playerctl module for waybar (gi.repository Playerctl). |
 
 ---
 
@@ -108,7 +112,7 @@ PATH ~/.local/bin, ~/.cargo/bin. EDITOR=nvim, QT_QPA_PLATFORM=wayland. Aliases: 
 
 | Script | Description | Bind |
 |--------|-------------|------|
-| `wallpaper` | mpvpaper slideshow. GPU (vaapi), 30fps, low cache (2s, 24MiB). Playlist capped at 20 videos. `wallpaper` \| `wallpaper random` \| `wallpaper <sec>` \| `wallpaper stop`. | — |
+| `wallpaper` | mpvpaper slideshow. hwdec=vaapi, 30fps, cache 2s / 24MiB. Playlist capped at 20. `wallpaper` \| `wallpaper random` \| `wallpaper <sec>` \| `wallpaper stop`. | — |
 | `restart-waybar` | Restart waybar (nohup, survives terminal close). | Super+Shift+W |
 | `clipboard-pick` | Clipboard history via wofi (cliphist). Needs: cliphist, wl-clipboard. Autostart: wl-paste --watch cliphist store. | Super+Shift+V |
 | `power-menu` | Lock, Log out, Reboot, Shutdown. | Super+Shift+E |
@@ -145,16 +149,6 @@ LazyVim, gruvbox.nvim, presence.nvim.
 
 ---
 
-## ┌─[ MEMORY (SYSCTL) ]──────────────────────┐
-
-**sysctl.d/** → copy to `/etc/sysctl.d/` (requires root).
-
-| File | Description |
-|------|-------------|
-| `99-memory.conf` | vm.swappiness=10, dirty_ratio 20/5. Reduces swap thrash and I/O spikes; helps with freezes on long uptime or when recording. Apply: `sudo cp sysctl.d/99-memory.conf /etc/sysctl.d/ && sudo sysctl --system`. |
-
----
-
 ## ┌─[ REPO LAYOUT ]──────────────────────────┐
 
 ```
@@ -167,7 +161,6 @@ dotfiles/
 ├── local/bin/
 ├── mako/
 ├── nvim/
-├── sysctl.d/
 ├── user-tmpfiles.d/
 ├── waybar/
 ├── wezterm/
@@ -177,8 +170,6 @@ dotfiles/
 ```
 
 Deploy with GNU stow from parent dir: `stow -t ~ dotfiles` (or per-directory). Link `zshrc` to `~/.zshrc` as needed.
-
-**Memory tuning (optional):** Copy `sysctl.d/99-memory.conf` to `/etc/sysctl.d/` and run `sudo sysctl --system`. Lowers swappiness and dirty ratios to reduce freezes on long uptime or when recording.
 
 ---
 
