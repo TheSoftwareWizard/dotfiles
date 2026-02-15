@@ -1,0 +1,47 @@
+# Cowboy Bebop × Gruvbox Theme for WezTerm
+
+[colors]
+# Base colors
+foreground = "#ebdbb2"
+background = "#1d2021"
+cursor_bg = "#ebdbb2"
+cursor_border = "#ebdbb2"
+cursor_fg = "#1d2021"
+selection_bg = "#504945"
+selection_fg = "#ebdbb2"
+
+# Ansi colors
+ansi = [
+  "#282828",  # Black
+  "#cc6666",  # Red
+  "#b8bb26",  # Green
+  "#d79921",  # Yellow
+  "#7fa2ac",  # Blue
+  "#b16286",  # Magenta
+  "#8ec07c",  # Cyan
+  "#ebdbb2",  # White
+]
+
+brights = [
+  "#928374",  # Bright Black
+  "#fb4934",  # Bright Red
+  "#b8bb26",  # Bright Green
+  "#fabd2f",  # Bright Yellow
+  "#83a598",  # Bright Blue
+  "#d3869b",  # Bright Magenta
+  "#8ec07c",  # Bright Cyan
+  "#fbf1c7",  # Bright White
+]
+
+# Tab bar colors
+tab_bar_background = "#282828"
+active_tab_background = "#504945"
+active_tab_foreground = "#d79921"
+inactive_tab_background = "#282828"
+inactive_tab_foreground = "#928374"
+
+# Window frame colors
+window_frame_active_background = "#1d2021"
+window_frame_active_border_color = "#7fa2ac"
+window_frame_inactive_background = "#282828"
+window_frame_inactive_border_color = "#504945"

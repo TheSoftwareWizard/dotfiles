@@ -106,7 +106,7 @@
     },
 
     "custom/cava": {
-        "exec": "~/.config/waybar/scripts/cava.sh",
+        "exec": "~/.config/waybar/scripts/cava.sh braille",
         "format": "{}"
     }
 }

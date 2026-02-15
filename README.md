@@ -1,167 +1,201 @@
-# Configuration Files
+# Dotfiles
 
-This document lists the configuration files modified or created during system setup.
-
----
-
-## Hyprland (Window Manager)
-
-### `/home/drak/.config/hypr/hyprland.conf`
-- Main Hyprland configuration
-- Gruvbox theme, animations, keybindings
-- Autostart: waybar, mako, wallpaper
-- Monitors, screenshots (hyprshot: Print = region, Super+Print = fullscreen)
-- WezTerm Wayland env
+Hyprland rice — Gruvbox, Waybar, WezTerm, Neovim. Fedora.
 
 ---
 
-## Waybar (Status Bar)
+## ┌─[ HYPRLAND ]──────────────────────────────┐
 
-### `/home/drak/.config/waybar/config`
-- Waybar config (JSON)
-- Modules: workspaces, window, media player, cava, CPU, GPU, RAM, volume, network, clock, tray
+**hypr/** → `~/.config/hypr/`
 
-### `/home/drak/.config/waybar/style.css`
-- Gruvbox theme, JetBrains Mono Nerd Font, rounded borders
-
-### `/home/drak/.config/waybar/scripts/mediaplayer.sh`
-- Media info via playerctl (MPRIS) and PipeWire sink-inputs (Discord, browsers, games)
-- Output: icon + artist - title (truncated)
-
-### `/home/drak/.config/waybar/scripts/cava.sh`
-- Pipes cava raw output to Unicode bars for Waybar
+| File | Description |
+|------|--------------|
+| `hyprland.conf` | WM config. Gruvbox, animations, keybinds. Autostart: waybar, mako, hypridle, cliphist, wallpaper. Super+L lock, Super+Shift+R reload, Super+Shift+V clipboard, Super+Shift+E power menu, Super+Shift+W restart waybar. Screenshots: Print / Super+Print. |
+| `hyprlock.conf` | Lock screen (Super+L). Gruvbox bg, time/date labels, password field. JetBrains Mono Nerd Font. |
+| `hypridle.conf` | Idle daemon. Screen off 5 min, lock 7 min. loginctl + dpms. |
 
 ---
 
-## WezTerm (Terminal)
+## ┌─[ WOFI ]──────────────────────────────────┐
 
-### `/home/drak/.config/wezterm/wezterm.lua`
-- Wayland, WebGpu, Gruvbox Dark, JetBrains Mono Nerd Font, font size 9, opacity 0.8
-- Tab bar at bottom, custom tab colors and process-based icons
-- Keybindings: Ctrl+Shift+D/E split, Ctrl+Shift+Arrow pane focus, Ctrl+Plus/Minus/0 font size
-- Scrollback 10000, SteadyBlock cursor
+**wofi/** → `~/.config/wofi/`
 
----
-
-## Cava (Audio Visualizer)
-
-### `/home/drak/.config/cava/config`
-- 60 FPS, 12 bars, Gruvbox gradient, raw ASCII for Waybar, PulseAudio, smoothing
-
-### `/home/drak/.config/cava/shaders/`
-- `bar_spectrum.frag`, `northern_lights.frag`, `pass_through.vert`
+| File | Description |
+|------|--------------|
+| `config` | Drun launcher. Width 400, center, dark. |
+| `style.css` | Gruvbox. BG #1d2021, selection #689d6a, JetBrains Mono. |
 
 ---
 
-## Mako (Notifications)
+## ┌─[ WAYBAR ]────────────────────────────────┐
 
-### `/home/drak/.config/mako/config`
-- Gruvbox: black bg, beige text, yellow border, JetBrains Mono 9
-- Max 300x100, radius 4, padding 10, timeout 5s (10s high urgency), max history 1000
+**waybar/** → `~/.config/waybar/`
 
----
-
-## Fastfetch (System Info)
-
-### `/home/drak/.config/fastfetch/config.jsonc`
-- Gruvbox colors, kitty backend, custom image (maomao2.jpg), Nerd Font keys
-- Modules: OS, host, CPU, GPU, RAM, disk, packages, shell, terminal, WM, uptime, GitHub block
-
-### `/home/drak/.config/fastfetch/images/`
-- `maomao.jpg`, `maomao2.jpg`
+| File | Description |
+|------|--------------|
+| `config` | Modules: workspaces, window, media, cava (braille), CPU, GPU, RAM, volume, network, clock, tray. |
+| `style.css` | Gruvbox, JetBrains Mono. No border-radius; thin border on cava only; no hover on active workspace. |
+| `scripts/mediaplayer.sh` | playerctl + PipeWire sink-inputs. Icon + artist − title. |
+| `scripts/cava.sh` | Cava raw → Unicode bars. Styles: default \| thin \| minimal \| dots \| block \| braille. |
 
 ---
 
-## Neovim / LazyVim
+## ┌─[ WEZTERM ]───────────────────────────────┐
 
-### `/home/drak/.config/nvim/init.lua`
-- Loads LazyVim via `config.lazy`
+**wezterm/** → `~/.config/wezterm/`
 
-### `/home/drak/.config/nvim/lua/config/lazy.lua`
-- LazyVim base, colorschemes: gruvbox, tokyonight, habamax, custom plugins from `plugins/`
-
-### `/home/drak/.config/nvim/lua/config/options.lua`
-- Word wrap, linebreak, breakindent, showbreak; transparent background
-
-### `/home/drak/.config/nvim/lua/plugins/colorscheme.lua`
-- gruvbox.nvim, transparent mode, visual selection bg overrides
-
-### `/home/drak/.config/nvim/lua/plugins/discord.lua`
-- presence.nvim: Discord Rich Presence (file, workspace, time, buttons)
+| File | Description |
+|------|--------------|
+| `wezterm.lua` | Wayland, WebGpu, Gruvbox. JetBrains Mono 9, opacity 0.8. Tab bar bottom, process icons. BlinkingBlock cursor. Ctrl+Shift+D/E split, Ctrl+Shift+Arrow focus, Ctrl+Plus/Minus/0 font size. Scrollback 10k. |
 
 ---
 
-## Zsh
+## ┌─[ CAVA ]──────────────────────────────────┐
 
-### `/home/drak/.zshrc`
-- PATH: ~/.local/bin, ~/.cargo/bin
-- EDITOR=nvim, BROWSER=firefox, QT_QPA_PLATFORM=wayland, XDG_CURRENT_DESKTOP=niri
-- Aliases: ls=eza, ll, lla, nv, ytm, update, music, etc.
-- Gruvbox prompt with username and Git branch, completion and history
+**cava/** → `~/.config/cava/`
 
----
-
-## Wallpaper (mpvpaper)
-
-### `/home/drak/.local/bin/wallpaper`
-- Usage: `wallpaper` or `wallpaper random` (random slideshow), `wallpaper <seconds>`, `wallpaper stop`
-- Videos from ~/Wallpapers/live/ (.mp4, .webm, .gif, .mkv), monitor HDMI-A-1, VAAPI, no audio
+| File | Description |
+|------|--------------|
+| `config` | 60 FPS, 12 bars, Gruvbox gradient, raw ASCII for waybar. PulseAudio, smoothing. |
+| `shaders/` | bar_spectrum.frag, northern_lights.frag, pass_through.vert. |
 
 ---
 
-## Discord Rich Presence
+## ┌─[ MAKO ]──────────────────────────────────┐
 
-### `/home/drak/.config/user-tmpfiles.d/discord-rpc.conf`
-- systemd-tmpfiles: symlink Discord Flatpak IPC socket for Rich Presence
+**mako/** → `~/.config/mako/`
 
----
-
-## Dependencies
-
-### System (Fedora)
-- hyprland, waybar, mako, mpvpaper, hyprshot, cava, playerctl, pipewire, wezterm, neovim, zsh, eza, ytermusic, fastfetch, chafa
-
-### Neovim (LazyVim)
-- LazyVim/LazyVim, ellisonleao/gruvbox.nvim, andweeb/presence.nvim
-
-### Fonts
-- JetBrains Mono, JetBrainsMono Nerd Font, Noto Color Emoji
+| File | Description |
+|------|--------------|
+| `config` | Gruvbox. Black bg, beige text, yellow border. JetBrains Mono 9. Max 300×100, timeout 5s (10s high urgency), history 1000. |
 
 ---
 
-## Gruvbox Colors (reference)
+## ┌─[ FASTFETCH ]─────────────────────────────┐
 
-- Background: #282828, #1d2021, #3c3836 | Foreground: #ebdbb2
-- Red: #fb4934, #cc241d | Green: #b8bb26, #98971a, #689d6a | Yellow: #fabd2f, #d79921
-- Blue: #83a598, #458588 | Purple: #d3869b, #b16286 | Aqua: #8ec07c | Orange: #fe8019 | Gray: #928374, #a89984, #665c54
+**fastfetch/** → `~/.config/fastfetch/`
+
+| File | Description |
+|------|--------------|
+| `config.jsonc` | Gruvbox, kitty backend, custom image. Modules: OS, host, CPU, GPU, RAM, disk, packages, shell, terminal, WM, uptime, GitHub. |
+| `images/` | Custom ascii/logo images. |
 
 ---
 
-## File Locations
+## ┌─[ NVIM / LAZYVIM ]────────────────────────┐
+
+**nvim/** → `~/.config/nvim/`
+
+| Path | Description |
+|------|--------------|
+| `init.lua` | Loads LazyVim via config.lazy. |
+| `lua/config/` | lazy, options, keymaps, autocmds. |
+| `lua/plugins/` | colorscheme (gruvbox, transparent), discord (presence.nvim). |
+
+---
+
+## ┌─[ ZSH ]───────────────────────────────────┐
+
+**zshrc** → `~/.zshrc`
+
+PATH ~/.local/bin, ~/.cargo/bin. EDITOR=nvim, QT_QPA_PLATFORM=wayland. Aliases: eza, nv, ytm, update, music. Gruvbox prompt, git branch, completion, history.
+
+---
+
+## ┌─[ LOCAL BIN ]─────────────────────────────┐
+
+**local/bin/** → `~/.local/bin/`
+
+| Script | Description | Bind |
+|--------|-------------|------|
+| `wallpaper` | mpvpaper slideshow. GPU (vaapi), 30fps, low cache (2s, 24MiB). Playlist capped at 20 videos. `wallpaper` \| `wallpaper random` \| `wallpaper <sec>` \| `wallpaper stop`. | — |
+| `restart-waybar` | Restart waybar (nohup, survives terminal close). | Super+Shift+W |
+| `clipboard-pick` | Clipboard history via wofi (cliphist). Needs: cliphist, wl-clipboard. Autostart: wl-paste --watch cliphist store. | Super+Shift+V |
+| `power-menu` | Lock, Log out, Reboot, Shutdown. | Super+Shift+E |
+
+---
+
+## ┌─[ GTK ]───────────────────────────────────┐
+
+**gtk-3.0/** → `~/.config/gtk-3.0/`  
+**gtk-4.0/** → `~/.config/gtk-4.0/`
+
+settings.ini: JetBrains Mono 10, dark preferred, cursor Adwaita 24. gtk-3.0 may also have gtk.css (Gruvbox overrides; not always in repo).
+
+---
+
+## ┌─[ USER-TMPFILES ]─────────────────────────┐
+
+**user-tmpfiles.d/** → `~/.config/user-tmpfiles.d/`
+
+discord-rpc.conf: systemd-tmpfiles symlink for Discord Flatpak IPC (Rich Presence).
+
+---
+
+## ┌─[ DEPENDENCIES ]──────────────────────────┐
+
+**System (Fedora)**  
+hyprland, hyprlock, hypridle, waybar, mako, wofi, mpvpaper, hyprshot, cava, playerctl, pipewire, wezterm, neovim, zsh, eza, ytermusic, fastfetch, chafa, cliphist, wl-clipboard.
+
+**Fonts**  
+JetBrains Mono, JetBrainsMono Nerd Font, Noto Color Emoji.
+
+**Neovim**  
+LazyVim, gruvbox.nvim, presence.nvim.
+
+---
+
+## ┌─[ MEMORY (SYSCTL) ]──────────────────────┐
+
+**sysctl.d/** → copy to `/etc/sysctl.d/` (requires root).
+
+| File | Description |
+|------|-------------|
+| `99-memory.conf` | vm.swappiness=10, dirty_ratio 20/5. Reduces swap thrash and I/O spikes; helps with freezes on long uptime or when recording. Apply: `sudo cp sysctl.d/99-memory.conf /etc/sysctl.d/ && sudo sysctl --system`. |
+
+---
+
+## ┌─[ REPO LAYOUT ]──────────────────────────┐
 
 ```
-~/.config/
-  hypr/hyprland.conf
-  waybar/{config, style.css, scripts/mediaplayer.sh, scripts/cava.sh}
-  wezterm/wezterm.lua
-  cava/{config, shaders/}
-  mako/config
-  fastfetch/{config.jsonc, images/}
-  nvim/init.lua, lua/config/{lazy,options,keymaps,autocmds}.lua, lua/plugins/
-  user-tmpfiles.d/discord-rpc.conf
-~/.local/bin/wallpaper
-~/.zshrc
-~/.thunderbird/<profile>/chrome/userChrome.css, user.js
+dotfiles/
+├── cava/
+├── fastfetch/
+├── gtk-3.0/
+├── gtk-4.0/
+├── hypr/
+├── local/bin/
+├── mako/
+├── nvim/
+├── sysctl.d/
+├── user-tmpfiles.d/
+├── waybar/
+├── wezterm/
+├── wofi/
+├── zshrc
+└── README.md
 ```
 
----
+Deploy with GNU stow from parent dir: `stow -t ~ dotfiles` (or per-directory). Link `zshrc` to `~/.zshrc` as needed.
 
-## Useful Commands
-
-- Restart Waybar: `killall waybar && waybar &`
-- Wallpaper: `wallpaper` (random), `wallpaper <path>`, `wallpaper stop`
-- Screenshots: Print = region, Super+Print = fullscreen
+**Memory tuning (optional):** Copy `sysctl.d/99-memory.conf` to `/etc/sysctl.d/` and run `sudo sysctl --system`. Lowers swappiness and dirty ratios to reduce freezes on long uptime or when recording.
 
 ---
 
-Last updated: January 2025 | Fedora, Hyprland, WezTerm, Neovim (LazyVim), Zsh, Gruvbox Dark, JetBrains Mono Nerd Font
+## ┌─[ COMMANDS ]──────────────────────────────┐
+
+| Action | Key / Command |
+|--------|----------------|
+| Lock | Super+L |
+| Reload hyprland | Super+Shift+R or `hyprctl reload` |
+| Restart waybar | Super+Shift+W or `restart-waybar` |
+| Clipboard history | Super+Shift+V |
+| Power menu | Super+Shift+E |
+| Wallpaper | `wallpaper`, `wallpaper random`, `wallpaper stop` |
+| Screenshots | Print = region, Super+Print = fullscreen |
+
+---
+
+## ┌─[ GRUVBOX REF ]───────────────────────────┐
+
+BG #282828 #1d2021 #3c3836 · FG #ebdbb2 · Red #fb4934 #cc241d · Green #b8bb26 #689d6a · Yellow #fabd2f #d79921 · Blue #83a598 · Purple #d3869b #b16286 · Aqua #8ec07c · Orange #fe8019 · Gray #928374 #a89984

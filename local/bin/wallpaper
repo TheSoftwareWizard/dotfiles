@@ -1,11 +1,13 @@
 #!/bin/bash
-# mpvpaper slideshow: wallpaper [stop|random|seconds]
+# ┌─[ WALLPAPER ]──────────────────────────────┐
 
 WALLPAPER_DIR="$HOME/Wallpapers/live"
 MONITOR="HDMI-A-1"
 SLIDESHOW_INTERVAL=60
+PLAYLIST_MAX=20
 
 pkill -f mpvpaper 2>/dev/null
+sleep 0.5
 
 case "$1" in
     stop)
@@ -31,11 +33,12 @@ echo "Found $VIDEO_COUNT videos, changing every $SLIDESHOW_INTERVAL seconds"
 
 PLAYLIST=$(mktemp --suffix=.m3u)
 echo "#EXTM3U" > "$PLAYLIST"
-echo "$VIDEOS" | shuf | while read -r video; do
+echo "$VIDEOS" | shuf | head -n "$PLAYLIST_MAX" | while read -r video; do
     echo "#EXTINF:-1,$(basename "$video")" >> "$PLAYLIST"
     echo "$video" >> "$PLAYLIST"
 done
 
-mpvpaper -p -n "$SLIDESHOW_INTERVAL" -o "hwdec=vaapi video-sync=display-vdrop interpolation=no" "$MONITOR" "$PLAYLIST" &
+MPV_OPTS="hwdec=no vo=gpu-next fps=30 video-sync=display-vdrop interpolation=no no-audio cache=yes cache-secs=2 demuxer-max-bytes=8MiB"
+mpvpaper -p -n "$SLIDESHOW_INTERVAL" -o "$MPV_OPTS" "$MONITOR" "$PLAYLIST" &
 (sleep 10 && rm -f "$PLAYLIST") &
 echo "Wallpaper on $MONITOR (slideshow every ${SLIDESHOW_INTERVAL}s)"

@@ -1,0 +1,165 @@
+/* Cowboy Bebop × Gruvbox GTK Theme Overrides */
+
+/* Window background */
+window {
+    background-color: #1d2021;
+    color: #ebdbb2;
+}
+
+/* Entry fields */
+entry {
+    background-color: #282828;
+    color: #ebdbb2;
+    border: 1px solid #504945;
+    border-radius: 4px;
+    padding: 6px;
+}
+
+entry:focus {
+    border-color: #7fa2ac;
+    box-shadow: 0 0 0 1px #7fa2ac;
+}
+
+/* Buttons */
+button {
+    background-color: #282828;
+    color: #ebdbb2;
+    border: 1px solid #504945;
+    border-radius: 4px;
+    padding: 6px 12px;
+}
+
+button:hover {
+    background-color: #504945;
+    border-color: #7fa2ac;
+}
+
+button:active {
+    background-color: #3c3836;
+}
+
+/* Text view */
+textview text {
+    background-color: #282828;
+    color: #ebdbb2;
+}
+
+/* Scrollbars */
+scrollbar {
+    background-color: #282828;
+}
+
+scrollbar slider {
+    background-color: #504945;
+    border-radius: 4px;
+    min-width: 12px;
+    min-height: 12px;
+}
+
+scrollbar slider:hover {
+    background-color: #7fa2ac;
+}
+
+/* Tree view */
+treeview {
+    background-color: #1d2021;
+    color: #ebdbb2;
+}
+
+treeview:selected {
+    background-color: #504945;
+    color: #d79921;
+}
+
+/* Notebook tabs */
+notebook tab {
+    background-color: #282828;
+    color: #928374;
+    padding: 6px 12px;
+    border-radius: 4px 4px 0 0;
+}
+
+notebook tab:checked {
+    background-color: #504945;
+    color: #d79921;
+}
+
+/* Menu */
+menu {
+    background-color: #282828;
+    color: #ebdbb2;
+    border: 1px solid #504945;
+}
+
+menuitem {
+    padding: 6px 12px;
+}
+
+menuitem:hover {
+    background-color: #504945;
+}
+
+/* Tooltip */
+tooltip {
+    background-color: #282828;
+    color: #ebdbb2;
+    border: 1px solid #504945;
+    border-radius: 4px;
+    padding: 6px;
+}
+
+/* Progress bar */
+progressbar {
+    background-color: #282828;
+    border-radius: 4px;
+}
+
+progressbar progress {
+    background-color: #7fa2ac;
+    border-radius: 4px;
+}
+
+/* Scale (slider) */
+scale {
+    background-color: #282828;
+}
+
+scale highlight {
+    background-color: #7fa2ac;
+}
+
+scale slider {
+    background-color: #d79921;
+    border-radius: 50%;
+    min-width: 16px;
+    min-height: 16px;
+}
+
+/* Checkbox and Radio */
+checkbutton check,
+radiobutton radio {
+    background-color: #282828;
+    border: 1px solid #504945;
+    border-radius: 3px;
+}
+
+checkbutton check:checked,
+radiobutton radio:checked {
+    background-color: #7fa2ac;
+    border-color: #7fa2ac;
+}
+
+/* Switch */
+switch {
+    background-color: #504945;
+    border-radius: 20px;
+}
+
+switch:checked {
+    background-color: #7fa2ac;
+}
+
+switch slider {
+    background-color: #ebdbb2;
+    border-radius: 50%;
+}

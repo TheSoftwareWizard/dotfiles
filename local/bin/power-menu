@@ -1,0 +1,10 @@
+#!/bin/sh
+# ┌─[ POWER-MENU ]──────────────────────────────┐
+
+choice=$(printf '%s\n' "󰌾 Lock" "󰍃 Log out" "󰜉 Reboot" "󰐥 Shutdown" | wofi --dmenu -p "Power")
+case "$choice" in
+    *Lock*)       pidof hyprlock || hyprlock ;;
+    *Log*)        hyprctl dispatch exit ;;
+    *Reboot*)     systemctl reboot ;;
+    *Shutdown*)   systemctl poweroff ;;
+esac

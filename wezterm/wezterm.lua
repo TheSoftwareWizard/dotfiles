@@ -113,7 +113,9 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
     end
 end)
 
-config.default_cursor_style = "SteadyBlock"
+config.default_cursor_style = "BlinkingBlock"
+config.cursor_blink_rate = 300
+config.animation_fps = 1
 config.scrollback_lines = 10000
 config.enable_scroll_bar = false
 config.check_for_updates = false

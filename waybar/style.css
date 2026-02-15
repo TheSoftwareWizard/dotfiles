@@ -1,6 +1,7 @@
+/* ┌─[ WAYBAR ]────────────────────────────────┐ */
 * {
     font-family: "JetBrainsMono Nerd Font", "JetBrainsMono NF", "JetBrains Mono", FontAwesome, monospace;
-    font-size: 11px;
+    font-size: 10px;
     min-height: 0;
 }
 
@@ -12,15 +13,15 @@ window#waybar {
 #waybar > box {
     margin: 5px 15px 0 15px;
     background: #1d2021;
-    border: 2px solid #3c3836;
-    border-radius: 8px;
-    padding: 2px 5px;
+    border: none;
+    border-radius: 0;
+    padding: 2px 0;
 }
 
 #workspaces {
-    margin: 0 5px;
+    margin: 0 2px;
     background: #3c3836;
-    border-radius: 8px;
+    border-radius: 0;
     padding: 2px;
 }
 
@@ -28,7 +29,7 @@ window#waybar {
     padding: 4px 8px;
     margin: 2px;
     color: #665c54;
-    border-radius: 6px;
+    border-radius: 0;
     background: transparent;
     border: none;
     box-shadow: none;
@@ -39,15 +40,14 @@ window#waybar {
 #workspaces button:hover {
     background: #504945;
     color: #ebdbb2;
-    box-shadow: inset 0 -2px 0 #7c6f64;
 }
 
 #workspaces button.active {
     background: #689d6a;
     color: #1d2021;
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
-    border-radius: 6px;
+    border-radius: 0;
 }
+
 
 #workspaces button.urgent {
     background: #cc241d;
@@ -63,17 +63,17 @@ window#waybar {
     background: #689d6a;
     color: #1d2021;
     padding: 2px 10px;
-    border-radius: 6px 0 0 6px;
+    border-radius: 0;
     font-weight: bold;
 }
 
 #custom-cava {
     font-family: "JetBrainsMono Nerd Font", "JetBrainsMono NF", "JetBrains Mono", monospace;
     background: #1d2021;
-    border: 2px solid #689d6a;
+    border: 1px solid #689d6a;
     color: #b8bb26;
     padding: 2px 8px;
-    border-radius: 0 6px 6px 0;
+    border-radius: 0;
     min-width: 80px;
     letter-spacing: 1px;
 }
@@ -87,7 +87,7 @@ window#waybar {
 #clock {
     padding: 2px 10px;
     margin: 0 2px;
-    border-radius: 4px;
+    border-radius: 0;
 }
 
 #language {
@@ -139,7 +139,7 @@ window#waybar {
     padding: 4px 8px;
     margin: 0 2px;
     background-color: #e2ddd0;
-    border-radius: 4px;
+    border-radius: 0;
 }
 
 #tray > .passive {

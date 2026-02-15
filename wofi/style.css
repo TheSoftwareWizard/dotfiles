@@ -1,0 +1,61 @@
+/* ┌─[ WOFI STYLE ]─────────────────────────────┐ */
+window {
+    margin: 0;
+    border: 2px solid #3c3836;
+    background-color: #1d2021;
+    border-radius: 0;
+}
+
+#input {
+    margin: 8px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 0;
+    color: #ebdbb2;
+    background-color: #282828;
+    font: 11px "JetBrains Mono Nerd Font";
+}
+
+#input:focus {
+    outline: none;
+}
+
+#inner-box {
+    margin: 0 8px 8px;
+    background-color: transparent;
+}
+
+#outer-box {
+    margin: 8px;
+    padding: 0;
+    background-color: #1d2021;
+}
+
+#scroll {
+    margin: 0;
+    border: none;
+}
+
+#text {
+    margin: 4px 8px;
+    color: #ebdbb2;
+    font: 11px "JetBrains Mono Nerd Font";
+}
+
+#entry {
+    padding: 6px 10px;
+    border-radius: 0;
+}
+
+#entry:selected {
+    background-color: #689d6a;
+    color: #1d2021;
+}
+
+#entry:hover {
+    background-color: #3c3836;
+}
+
+#entry:selected #text {
+    color: #1d2021;
+}

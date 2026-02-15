@@ -1,5 +1,5 @@
 #!/bin/bash
-# Media player info (playerctl + PipeWire sink-inputs)
+# ┌─[ MEDIAPLAYER ]────────────────────────────┐
 
 MAX_LENGTH=25
 
@@ -9,7 +9,6 @@ get_audio_apps() {
     sed 's/.*= "//' | sed 's/"$//' | head -1
 }
 
-# Prefer playerctl (MPRIS: browsers, Spotify)
 player=$(playerctl -l 2>/dev/null | head -1)
 
 if [ -n "$player" ]; then
@@ -42,7 +41,6 @@ if [ -n "$player" ]; then
     fi
 fi
 
-# Fallback: apps with active audio (Discord, games)
 audio_app=$(pactl list sink-inputs 2>/dev/null | grep -A 20 "state: RUNNING" | grep "application.name" | head -1 | sed 's/.*= "//' | sed 's/"$//')
 
 if [ -n "$audio_app" ]; then

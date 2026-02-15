@@ -1,0 +1,5 @@
+#!/bin/sh
+# ┌─[ RESTART-WAYBAR ]─────────────────────────┐
+
+killall waybar 2>/dev/null
+exec nohup waybar > /dev/null 2>&1 &
