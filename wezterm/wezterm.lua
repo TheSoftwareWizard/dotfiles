@@ -59,7 +59,7 @@ config.enable_tab_bar = true
 config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = true
 config.hide_tab_bar_if_only_one_tab = false
-config.tab_max_width = 32
+config.tab_max_width = 64
 config.show_tab_index_in_tab_bar = false
 config.show_new_tab_button_in_tab_bar = true
 

@@ -4,8 +4,8 @@
 #  ┬  ┬┌─┐┬─┐┌─┐
 #  └┐┌┘├─┤├┬┘└─┐
 #   └┘ ┴ ┴┴└─└─┘
-export VISUAL="${EDITOR}"
 export EDITOR='nvim'
+export VISUAL="${EDITOR}"
 export BROWSER='firefox'
 export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
 export SUDO_PROMPT="Deploying root access for %u. Password pls: "
@@ -27,11 +27,11 @@ fi
 #  ┴─┘└─┘┴ ┴─┴┘  └─┘┘└┘└─┘┴┘└┘└─┘
 autoload -Uz compinit
 
-for dump in ~/.config/zsh/zcompdump(N.mh+24); do
+if [[ ! -f ~/.config/zsh/zcompdump || ~/.config/zsh/zcompdump -ot ~/.zshrc ]]; then
   compinit -d ~/.config/zsh/zcompdump
-done
-
-compinit -C -d ~/.config/zsh/zcompdump
+else
+  compinit -C -d ~/.config/zsh/zcompdump
+fi
 
 autoload -Uz add-zsh-hook
 autoload -Uz vcs_info

@@ -17,6 +17,7 @@
     
     "modules-right": [
         "hyprland/language",
+        "custom/vpn",
         "cpu",
         "custom/gpu",
         "memory",
@@ -48,6 +49,13 @@
 
     "hyprland/language": {
         "format": "󰌌 {short}"
+    },
+
+    "custom/vpn": {
+        "exec": "sh -c \"$HOME/.config/waybar/scripts/vpn.sh\"",
+        "interval": 5,
+        "format": "{}",
+        "return-type": "json"
     },
 
     "cpu": {
